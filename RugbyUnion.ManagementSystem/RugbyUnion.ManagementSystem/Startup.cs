@@ -25,26 +25,31 @@ namespace RugbyUnion.ManagementSystem
         {
             // Controllers
             services.AddControllers(options => options.Filters.Add<ValidateModelActionFilter>())
-                            .ConfigureApiBehaviorOptions(options =>
-                            {
-                                options.InvalidModelStateResponseFactory = context =>
-                                {
-                                    var result = new BadRequestObjectResult(context.ModelState);
-                                    result.ContentTypes.Add(MediaTypeNames.Application.Json);
-                                    return result;
-                                };
-                            });
+                .ConfigureApiBehaviorOptions(options =>
+                {
+                    options.InvalidModelStateResponseFactory = context =>
+                    {
+                        var result = new BadRequestObjectResult(context.ModelState);
+                        result.ContentTypes.Add(MediaTypeNames.Application.Json);
+                        return result;
+                    };
+                });
+
             // Database
             services.AddDbContext<RugbyUnionContext>(opt => opt.UseInMemoryDatabase("RubgyUnionManagementDatabase").UseLazyLoadingProxies());
 
             // Services
             services.AddTransient<ICrudService, CrudService>();
+            services.AddTransient<IPlayerService, PlayerService>();
+            services.AddTransient<ITeamService, TeamService>();
+            services.AddTransient<IStadiumService, StadiumService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseExceptionHandler("/error");
+            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
