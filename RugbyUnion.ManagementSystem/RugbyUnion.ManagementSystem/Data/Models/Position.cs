@@ -23,8 +23,16 @@ namespace RugbyUnion.ManagementSystem.Data.Models
             NumberAllowedInTeam = entity.NumberAllowedInTeam;
         }
 
-        public async Task Validate(DbSet<Position> dbSet)
+        public async Task Validate(DbSet<Position> dbSet, bool isUpdate = false)
         {
+            if (isUpdate)
+            {
+                if (await dbSet.AnyAsync(x => x.Id != Id && x.Name.Equals(Name, StringComparison.InvariantCultureIgnoreCase)))
+                    throw new Exception($"Position with name '{Name}' already exists.");
+
+                return;
+            }
+
             if (await dbSet.AnyAsync(x => x.Name.Equals(Name, StringComparison.InvariantCultureIgnoreCase)))
                 throw new Exception($"Position with name '{Name}' already exists.");
         }

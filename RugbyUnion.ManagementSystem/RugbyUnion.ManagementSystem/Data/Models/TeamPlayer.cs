@@ -28,7 +28,7 @@ namespace RugbyUnion.ManagementSystem.Data.Models
         {
         }
 
-        public Task Validate(DbSet<TeamPlayer> dbSet)
+        public Task Validate(DbSet<TeamPlayer> dbSet, bool isUpdate = false)
         {
             return Task.CompletedTask;
         }

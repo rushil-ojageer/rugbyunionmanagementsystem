@@ -56,8 +56,16 @@ namespace RugbyUnion.ManagementSystem.Data.Models
             return true;
         }
 
-        public async Task Validate(DbSet<Team> dbSet)
+        public async Task Validate(DbSet<Team> dbSet, bool isUpdate = false)
         {
+            if (isUpdate)
+            {
+                if (await dbSet.AnyAsync(x => x.Id != Id && x.Name.Equals(Name, StringComparison.InvariantCultureIgnoreCase) && x.Location.Equals(Location, StringComparison.InvariantCultureIgnoreCase)))
+                    throw new Exception($"Team with name '{Name}' and location '{Location}' already exists.");
+
+                return;
+            }
+
             if (await dbSet.AnyAsync(x => x.Name.Equals(Name, StringComparison.InvariantCultureIgnoreCase) && x.Location.Equals(Location, StringComparison.InvariantCultureIgnoreCase)))
                 throw new Exception($"Team with name '{Name}' and location '{Location}' already exists.");
         }

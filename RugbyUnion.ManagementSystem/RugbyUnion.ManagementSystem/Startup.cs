@@ -49,7 +49,6 @@ namespace RugbyUnion.ManagementSystem
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseExceptionHandler("/error");
-            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

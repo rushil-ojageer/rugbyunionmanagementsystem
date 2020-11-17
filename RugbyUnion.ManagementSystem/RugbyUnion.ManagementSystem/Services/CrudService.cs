@@ -90,7 +90,7 @@ namespace RugbyUnion.ManagementSystem.Services
                 throw new Exception($"Unable to find entity with Id {dto.Id}");
 
             var newModel = dto.GetModel();
-            await newModel.Validate(set);
+            await newModel.Validate(set, true);
 
             model.Update(newModel);
             await _context.SaveChangesAsync();

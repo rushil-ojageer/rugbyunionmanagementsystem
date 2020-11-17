@@ -29,8 +29,16 @@ namespace RugbyUnion.ManagementSystem.Data.Models
             MaxOccupancy = entity.MaxOccupancy;
         }
 
-        public async Task Validate(DbSet<Stadium> dbSet)
+        public async Task Validate(DbSet<Stadium> dbSet, bool isUpdate = false)
         {
+            if (isUpdate)
+            {
+                if (await dbSet.AnyAsync(x => x.Id != Id && x.Name.Equals(Name, StringComparison.InvariantCultureIgnoreCase) && x.Location.Equals(Location, StringComparison.InvariantCultureIgnoreCase)))
+                    throw new Exception($"Stadium with name '{Name}' and location '{Location}' already exists.");
+
+                return;
+            }
+
             if (await dbSet.AnyAsync(x => x.Name.Equals(Name, StringComparison.InvariantCultureIgnoreCase) && x.Location.Equals(Location, StringComparison.InvariantCultureIgnoreCase)))
                 throw new Exception($"Stadium with name '{Name}' and location '{Location}' already exists.");
         }

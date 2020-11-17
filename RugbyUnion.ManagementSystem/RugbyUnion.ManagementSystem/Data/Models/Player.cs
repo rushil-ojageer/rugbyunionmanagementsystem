@@ -46,8 +46,16 @@ namespace RugbyUnion.ManagementSystem.Data.Models
             CurrentPositionId = entity.CurrentPositionId;
         }
 
-        public async Task Validate(DbSet<Player> dbSet)
+        public async Task Validate(DbSet<Player> dbSet, bool isUpdate = false)
         {
+            if (isUpdate)
+            {
+                if (await dbSet.AnyAsync(x => x.Id != Id && x.FirstName.Equals(FirstName, StringComparison.InvariantCultureIgnoreCase) && x.LastName.Equals(LastName, StringComparison.InvariantCultureIgnoreCase)))
+                    throw new Exception($"Player with name '{FirstName} {LastName}' already exists.");
+
+                return;
+            }
+
             if (await dbSet.AnyAsync(x => x.FirstName.Equals(FirstName, StringComparison.InvariantCultureIgnoreCase) && x.LastName.Equals(LastName, StringComparison.InvariantCultureIgnoreCase)))
                 throw new Exception($"Player with name '{FirstName} {LastName}' already exists.");
         }

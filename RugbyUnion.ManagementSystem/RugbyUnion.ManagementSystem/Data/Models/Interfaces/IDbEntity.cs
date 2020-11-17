@@ -12,6 +12,6 @@ namespace RugbyUnion.ManagementSystem.Data.Models.Interfaces
 
         void Update(Model entity);
 
-        Task Validate(DbSet<Model> dbSet);
+        Task Validate(DbSet<Model> dbSet, bool isUpdate = false);
     }
 }
