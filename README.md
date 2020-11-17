@@ -1,5 +1,34 @@
 # Rugby Union Management System
 
+<h2>About</h2>
+
+This project is a REST API build using ASP.NET Core 3.1 and C#. This API exposes CRUD endpoints for the following entities:
+
+* Position
+* Team
+* Player
+* Stadium
+
+The CRUD endpoints that are exposed for each entity are:
+
+* GET 		/{entity}/{id}
+* GET 		/{entity}?offset=0&pageSize=10
+* POST 		/{entity}
+* PUT 		/{entity}
+* DELETE 	/{entity}/{id}
+
+In addition to the basic CRUD operations above, the API also exposes the following endpoints:
+
+* POST		/player/{playerId}/transfer/team/{teamId}
+* GET		/player/{playerId}/team/history
+* GET 		/stadium/{stadiumId}/team/history
+* POST		/team/{teamId}/add/player/{playerId}
+* DELETE	/team/{teamId}/remove/player/{playerId}
+* POST		/team/{teamId}/link/stadium/{stadiumId}
+* DELETE	/team/{teamId}/unlink/stadium/{stadiumId}
+* GET		/team/{teamId}/player/history
+* GET		/team/{teamId}/stadium/history
+
 <h2>Assumptions</h2>
 
 I made the following assumptions about the domain:
@@ -8,9 +37,10 @@ I made the following assumptions about the domain:
 2.	A stadium can only be home to one team at a time.
 3.	A team can only have one of each position at a time.
 4.	A player can change positions when changing teams.
-5.	A team requires all positions to be filled.
 
 <h2>How to run the application</h2>
+
+
 
 <h2>Designs and Interfaces</h2>
 
