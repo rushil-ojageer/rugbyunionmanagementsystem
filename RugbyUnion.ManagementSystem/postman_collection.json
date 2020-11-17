@@ -1,0 +1,648 @@
+{
+	"info": {
+		"_postman_id": "f7e678ee-6025-432c-9ca6-4d965eb42aba",
+		"name": "Rugby Union Management System API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Players",
+			"item": [
+				{
+					"name": "Get Player",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}player/1",
+							"host": [
+								"{{BaseUrl}}player"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Players",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}player?offset=5&pageSize=5",
+							"host": [
+								"{{BaseUrl}}player"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "5"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Player History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}player/1/team/history",
+							"host": [
+								"{{BaseUrl}}player"
+							],
+							"path": [
+								"1",
+								"team",
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Player",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Bryan\",\r\n    \"lastName\": \"Habana\",\r\n    \"dateOfBirth\": \"1984-07-11T00:00:00\",\r\n    \"heightCentimeters\": 184,\r\n    \"weightKilograms\": 91,\r\n    \"currentPositionId\": 11,\r\n    \"currentTeamId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}player",
+							"host": [
+								"{{BaseUrl}}player"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Player",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Bryan\",\r\n    \"lastName\": \"Habana\",\r\n    \"dateOfBirth\": \"1980-07-11T00:00:00\",\r\n    \"heightCentimeters\": 184,\r\n    \"weightKilograms\": 91,\r\n    \"currentPositionId\": 11,\r\n    \"currentTeamId\": 1,\r\n    \"id\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}player",
+							"host": [
+								"{{BaseUrl}}player"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Player",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}player/9",
+							"host": [
+								"{{BaseUrl}}player"
+							],
+							"path": [
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transfer Player",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}player/1/transfer/team/3",
+							"host": [
+								"{{BaseUrl}}player"
+							],
+							"path": [
+								"1",
+								"transfer",
+								"team",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Teams",
+			"item": [
+				{
+					"name": "Get Team",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}team/1",
+							"host": [
+								"{{BaseUrl}}team"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Teams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}team?offset=0&pageSize=5",
+							"host": [
+								"{{BaseUrl}}team"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Player History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}team/1/player/history",
+							"host": [
+								"{{BaseUrl}}team"
+							],
+							"path": [
+								"1",
+								"player",
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Stadium History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}team/1/stadium/history",
+							"host": [
+								"{{BaseUrl}}team"
+							],
+							"path": [
+								"1",
+								"stadium",
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Team",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Red Bulls\",\r\n    \"location\": \"Pretoria\",\r\n    \"currentStadiumId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}team",
+							"host": [
+								"{{BaseUrl}}team"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Team",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Red Bull Team\",\r\n    \"location\": \"Pretoria\",\r\n    \"currentStadiumId\": 1,\r\n    \"Id\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}team",
+							"host": [
+								"{{BaseUrl}}team"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Team",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}team/9",
+							"host": [
+								"{{BaseUrl}}team"
+							],
+							"path": [
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Player",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}team/1/add/player/3",
+							"host": [
+								"{{BaseUrl}}team"
+							],
+							"path": [
+								"1",
+								"add",
+								"player",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Player",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}team/1/remove/player/2",
+							"host": [
+								"{{BaseUrl}}team"
+							],
+							"path": [
+								"1",
+								"remove",
+								"player",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Link Stadium",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}team/1/link/stadium/1",
+							"host": [
+								"{{BaseUrl}}team"
+							],
+							"path": [
+								"1",
+								"link",
+								"stadium",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unlink Stadium",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}team/1/unlink/stadium/1",
+							"host": [
+								"{{BaseUrl}}team"
+							],
+							"path": [
+								"1",
+								"unlink",
+								"stadium",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "50059ee3-22a4-4442-a5af-de250c946d57",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe6c8ed7-2301-433f-b65e-5257224c92f1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Stadiums",
+			"item": [
+				{
+					"name": "Get Stadium",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}stadium/1",
+							"host": [
+								"{{BaseUrl}}stadium"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Stadiums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}stadium?offset=0&pageSize=5",
+							"host": [
+								"{{BaseUrl}}stadium"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Team History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}stadium/1/team/history",
+							"host": [
+								"{{BaseUrl}}stadium"
+							],
+							"path": [
+								"1",
+								"team",
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Stadium",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Loftus Versfeld Stadium 2\",\r\n    \"location\": \"Pretoria\",\r\n    \"maxOccupancy\": 51762\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}stadium",
+							"host": [
+								"{{BaseUrl}}stadium"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Stadium",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Loftus Versfeld Stadium 3\",\r\n    \"location\": \"Pretoria\",\r\n    \"maxOccupancy\": 51762,\r\n    \"Id\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}stadium",
+							"host": [
+								"{{BaseUrl}}stadium"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Stadium",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}stadium/9",
+							"host": [
+								"{{BaseUrl}}stadium"
+							],
+							"path": [
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Positions",
+			"item": [
+				{
+					"name": "Get Position",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}position/1",
+							"host": [
+								"{{BaseUrl}}position"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Positions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}position?offset=0&pageSize=5",
+							"host": [
+								"{{BaseUrl}}position"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Position",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Loosehead Prop 2\",\r\n    \"numberAllowedInTeam\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}position",
+							"host": [
+								"{{BaseUrl}}position"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Position",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Loosehead Prop 3\",\r\n    \"numberAllowedInTeam\": 2,\r\n    \"Id\": 18\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}position",
+							"host": [
+								"{{BaseUrl}}position"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Position",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}position/18",
+							"host": [
+								"{{BaseUrl}}position"
+							],
+							"path": [
+								"18"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
