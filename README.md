@@ -91,3 +91,7 @@ The following design of classes was adopted:
 2. Authorization - A user and permission mechanism would be created to manage access to various resources. This would have tied into the authentication mechanism above (ie, the access token would contain the user's permissions in the claims).
 
 3. Improved logging - I would increase the amount of logging currently in the API to assist with investigating of bugs.
+
+4. Team Captains - From a domain perspective I would introduce the concept of Team captains.
+
+5. Containerization - With more time, I would configure the application to run inside a Docker container.
