@@ -1,0 +1,9 @@
+﻿Id,FirstName,LastName,DateOfBirth,HeightCentimeters,WeightKilograms,CurrentPositionId
+1,Morne,Steyn,1984-07-11T00:00:00.00,184,91,11
+2,Jamba,Ulengo,1990-01-07T00:00:00.00,185,100,17
+3,JP,Pietersen,1986-07-12T00:00:00.00,190,106,16
+4,Siya,Kolisi,1991-06-16T00:00:00.00,188,105,1
+5,Ruan,Piernaar,1984-03-10T00:00:00.00,187,92,10
+6,Jacques,DuToit,1993-11-19T00:00:00.00,184,103,2
+7,Bjorn,Basson,1987-02-11T00:00:00.00,185,87,15
+8,Ig,Prinsloo,1997-03-03T00:00:00.00,190,130,3
