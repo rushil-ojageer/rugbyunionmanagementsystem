@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
 using Microsoft.EntityFrameworkCore;
+using RugbyUnion.ManagementSystem.Attributes;
 using RugbyUnion.ManagementSystem.Data.Models;
 using RugbyUnion.ManagementSystem.Data.SeedData;
 using System;
@@ -20,16 +21,22 @@ namespace RugbyUnion.ManagementSystem.Data
 
         }
 
+        [DbSet(typeof(Player))]
         public DbSet<Player> Players { get; set; }
 
+        [DbSet(typeof(Position))]
         public DbSet<Position> Positions { get; set; }
 
+        [DbSet(typeof(Stadium))]
         public DbSet<Stadium> Stadiums { get; set; }
 
+        [DbSet(typeof(Team))]
         public DbSet<Team> Teams { get; set; }
 
+        [DbSet(typeof(TeamPlayer))]
         public DbSet<TeamPlayer> TeamPlayers { get; set; }
 
+        [DbSet(typeof(TeamStadium))]
         public DbSet<TeamStadium> TeamStadiums { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

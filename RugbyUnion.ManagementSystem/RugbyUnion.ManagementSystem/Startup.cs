@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RugbyUnion.ManagementSystem.Data;
+using RugbyUnion.ManagementSystem.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,8 @@ namespace RugbyUnion.ManagementSystem
             // Database
             services.AddDbContext<RugbyUnionContext>(opt => opt.UseInMemoryDatabase("RubgyUnionManagementDatabase").UseLazyLoadingProxies());
 
+            // Services
+            services.AddTransient<ICrudService, CrudService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
