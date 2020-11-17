@@ -4,16 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using RugbyUnion.ManagementSystem.Data;
 using RugbyUnion.ManagementSystem.Filters;
 using RugbyUnion.ManagementSystem.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mime;
-using System.Threading.Tasks;
 
 namespace RugbyUnion.ManagementSystem
 {

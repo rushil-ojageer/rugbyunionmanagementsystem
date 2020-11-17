@@ -11,9 +11,19 @@ namespace RugbyUnion.ManagementSystem.Controllers
     [Route("[controller]")]
     public class StadiumController : BaseCrudController<StadiumDto, Stadium>
     {
-        public StadiumController(ICrudService crudService) : 
+        private readonly IStadiumService _stadiumService;
+
+        public StadiumController(ICrudService crudService, IStadiumService stadiumService) : 
             base(crudService)
         {
+            _stadiumService = stadiumService;
         }
+
+        [HttpGet("{stadiumId}/team/history")]
+        public async Task<PagedDto<TeamStadiumDto, TeamStadium>> GetStadiumHistory(int stadiumId, int offset = 0, int pageSize = 10)
+        {
+            return await _stadiumService.GetTeamHistory(stadiumId, offset, pageSize);
+        }
+
     }
 }

@@ -11,9 +11,26 @@ namespace RugbyUnion.ManagementSystem.Controllers
     [Route("[controller]")]
     public class PlayerController : BaseCrudController<PlayerDto, Player>
     {
-        public PlayerController(ICrudService crudService) :
+        private readonly IPlayerService _playerService;
+        private readonly ITeamService _teamService;
+
+        public PlayerController(ICrudService crudService, IPlayerService playerService, ITeamService teamService) :
             base (crudService)
         {
+            _playerService = playerService;
+            _teamService = teamService;
+        }
+
+        [HttpPost("{playerId}/transfer/team/{teamId}")]
+        public async Task<PlayerDto> TransferPlayer(int playerId, int teamId)
+        {
+            return await _teamService.AddPlayer(teamId, playerId);
+        }
+
+        [HttpGet("{playerId}/team/history")]
+        public async Task<PagedDto<TeamPlayerDto, TeamPlayer>> GetPlayerHistory(int playerId, int offset = 0, int pageSize = 10)
+        {
+            return await _playerService.GetTeamHistory(playerId, offset, pageSize);
         }
     }
 }
