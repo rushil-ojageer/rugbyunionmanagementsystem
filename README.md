@@ -1,6 +1,6 @@
 # Rugby Union Management System
 
-<h1>Assumptions</h1>
+<h2>Assumptions</h2>
 
 I made the following assumptions about the domain:
 
@@ -10,9 +10,9 @@ I made the following assumptions about the domain:
 4.	A player can change positions when changing teams.
 5.	A team requires all positions to be filled.
 
-<h1>How to run the application</h1>
+<h2>How to run the application</h2>
 
-<h1>Designs and Interfaces</h1>
+<h2>Designs and Interfaces</h2>
 
 The following database design diagrams depicts the database entities used in this API:
 
