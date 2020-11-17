@@ -40,7 +40,12 @@ I made the following assumptions about the domain:
 
 <h2>How to run the application</h2>
 
-
+<pre>
+	<code>
+		cd RugbyUnion.ManagementSystem\RugbyUnion.ManagementSystem
+		dotnet run --launch-profile "RugbyUnion.ManagementSystem"
+	</code>
+</pre>
 
 <h2>Designs and Interfaces</h2>
 
