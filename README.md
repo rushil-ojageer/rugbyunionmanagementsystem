@@ -40,12 +40,16 @@ I made the following assumptions about the domain:
 
 <h2>How to run the application</h2>
 
+To run the application please checkout the code and run the following commands in the root folder:
+
 <pre>
 	<code>
 		cd RugbyUnion.ManagementSystem\RugbyUnion.ManagementSystem
 		dotnet run --launch-profile "RugbyUnion.ManagementSystem"
 	</code>
 </pre>
+
+Once launched, you can use [Postman](https://www.postman.com/) to test the API endpoints. A Postan library has been included in this project with tests for each endpoint exposed by this API. This can be found in the file "RugbyUnion.ManagementSystem/postman_collection.json".
 
 <h2>Designs and Interfaces</h2>
 
