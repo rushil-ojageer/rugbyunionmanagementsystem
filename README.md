@@ -26,3 +26,10 @@ Should a controller want to expose endpoints for these operations, the controlle
 
 2.	Operations like linking of a team to a stadium or transferring a player from his/her current team to another team is handled is custom services and custom endpoints.
 
+<h2>List any encountered obstacles and how you solved them</h2>
+
+<h2>List resources used and relevant references</h2>
+
+<h2>How long you took to complete the assignment</h2>
+
+<h2>If you had more time, what would you do differently? Also, what would you have added additionally?</h2>
