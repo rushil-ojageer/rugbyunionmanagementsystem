@@ -69,13 +69,25 @@ The following design of classes was adopted:
 	
 	Should a controller want to expose endpoints for these operations, the controller will need to implement BaseCrudController. BaseCrudController is a generic base controller class which uses a generic CrudService (which implements ICrudService) to provide the operations mentioned above. 
 
-2.	Operations like linking of a team to a stadium or transferring a player from his/her current team to another team is handled is custom services and custom endpoints in a 
-	controller.
+2.	Operations such as the linking of a team to a stadium or transferring a player from his/her current team to another team is handled is custom services. This functionality is 
+	exposed through custom endpoints in a controller.
 
 <h2>List any encountered obstacles and how you solved them</h2>
 
+1. **Seeding the database with data:** I encountered an issue with seeding the database with data. The database context is only created when injected into a class. As such the database was only being seeded at the point of use. This was not efficient, and as such, code has to be added so that the database context is resolved on startup (after registration) and seeding of the database was forced to happen on startup.
+
 <h2>List resources used and relevant references</h2>
+
+1. Microsoft Documentation for [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-5.0)
 
 <h2>How long you took to complete the assignment</h2>
 
+1. I took about 6 hours to complete this assignment over the course of a week.
+
 <h2>If you had more time, what would you do differently? Also, what would you have added additionally?</h2>
+
+1. Authentication - I would have created an OAuth2 authentication service to provide a user with an access token. This access token would then be required to access the endpoints in this API.
+
+2. Authorization - A user and permission mechanism would be created to manage access to various resources. This would have tied into the authentication mechanism above (ie, the access token would contain the user's permissions in the claims).
+
+3. Improved logging - I would increase the amount of logging currently in the API to assist with investigating of bugs.
